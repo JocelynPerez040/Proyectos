@@ -1,0 +1,14 @@
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\bin\Debug\AplicaciónFuncional.exe.config
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\bin\Debug\AplicaciónFuncional.exe
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\bin\Debug\AplicaciónFuncional.pdb
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.csprojAssemblyReference.cache
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.frmInicioSesion.resources
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.frmMenu.resources
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.frmVentas.resources
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.frmProductos.resources
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.frmEstadisticas.resources
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.Properties.Resources.resources
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.csproj.GenerateResource.cache
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.csproj.CoreCompileInputs.cache
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.exe
+C:\Users\jocel\source\repos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.pdb
