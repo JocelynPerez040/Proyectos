@@ -24,6 +24,7 @@ namespace AplicaciónFuncional
         public frmInicioSesion()
         {
             /**/
+            /**/
             InitializeComponent();
             txtCorreo.Hide();
             picCorreo.Hide();
