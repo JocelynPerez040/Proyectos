@@ -8,6 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+//COMENTARIO
+
+
+
 namespace AplicaciónFuncional
 {
     public partial class frmInicioSesion : Form
@@ -17,6 +23,7 @@ namespace AplicaciónFuncional
 
         public frmInicioSesion()
         {
+            /**/
             InitializeComponent();
             txtCorreo.Hide();
             picCorreo.Hide();
