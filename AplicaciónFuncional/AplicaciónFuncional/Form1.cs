@@ -122,15 +122,5 @@ namespace AplicaciónFuncional
                 txtContraseña.PasswordChar = '*';
             }
         }
-
-
-        /*
-         * 
-         * 
-         * 
-         * 
-         *   
-         */
-        
     }
 }
