@@ -22,6 +22,7 @@ namespace AplicaciónFuncional
         public frmMenu()
         {
             InitializeComponent();
+            lblUsuario.Text = Mandar.user;
         }
 
         /***PARA MOVER EL FORMULARIO***/
@@ -51,25 +52,25 @@ namespace AplicaciónFuncional
         /***BOTONES***/
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Se ha cerrado su sesión");            
+            MessageBox.Show("Se ha cerrado su sesión");
             this.Hide();
             FInSes.Show();
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
-        {            
+        {
             this.Hide();
             FVen.Show();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
-        {            
+        {
             this.Hide();
             FProd.Show();
         }
 
         private void btnEstadisticas_Click(object sender, EventArgs e)
-        {            
+        {
             this.Hide();
             FEst.Show();
         }

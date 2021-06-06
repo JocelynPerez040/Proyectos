@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnCrear = new System.Windows.Forms.Button();
-            this.lblAdvertencia = new System.Windows.Forms.Label();
             this.btnRegistro = new System.Windows.Forms.Button();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.lbkOlvido = new System.Windows.Forms.LinkLabel();
@@ -66,18 +65,6 @@
             this.btnCrear.Text = "Crear Usuario";
             this.btnCrear.UseVisualStyleBackColor = false;
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
-            // 
-            // lblAdvertencia
-            // 
-            this.lblAdvertencia.AutoSize = true;
-            this.lblAdvertencia.BackColor = System.Drawing.Color.White;
-            this.lblAdvertencia.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdvertencia.ForeColor = System.Drawing.Color.Red;
-            this.lblAdvertencia.Location = new System.Drawing.Point(50, 281);
-            this.lblAdvertencia.Name = "lblAdvertencia";
-            this.lblAdvertencia.Size = new System.Drawing.Size(0, 13);
-            this.lblAdvertencia.TabIndex = 46;
-            this.lblAdvertencia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnRegistro
             // 
@@ -123,6 +110,7 @@
             this.lbkOlvido.TabIndex = 41;
             this.lbkOlvido.TabStop = true;
             this.lbkOlvido.Text = "Olvidé mi contraseña";
+            this.lbkOlvido.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbkOlvido_LinkClicked_1);
             // 
             // txtCorreo
             // 
@@ -254,7 +242,6 @@
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(405, 427);
             this.Controls.Add(this.btnCrear);
-            this.Controls.Add(this.lblAdvertencia);
             this.Controls.Add(this.picCerrar);
             this.Controls.Add(this.picUsuarios);
             this.Controls.Add(this.btnRegistro);
@@ -288,7 +275,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnCrear;
-        private System.Windows.Forms.Label lblAdvertencia;
         private System.Windows.Forms.PictureBox picCerrar;
         private System.Windows.Forms.PictureBox picUsuarios;
         private System.Windows.Forms.Button btnRegistro;

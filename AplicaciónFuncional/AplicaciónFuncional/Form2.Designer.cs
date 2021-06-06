@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.picCerrar = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picCerrarSesion = new System.Windows.Forms.PictureBox();
             this.picEstadisticas = new System.Windows.Forms.PictureBox();
             this.picProductos = new System.Windows.Forms.PictureBox();
@@ -41,10 +41,11 @@
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrarSesion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEstadisticas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picProductos)).BeginInit();
@@ -61,6 +62,16 @@
             this.groupBox1.Size = new System.Drawing.Size(327, 178);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::AplicaciónFuncional.Properties.Resources.logo1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(112, 17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 75);
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
             // 
             // lblBienvenida
             // 
@@ -94,6 +105,7 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(89)))), ((int)(((byte)(159)))));
+            this.pnlMenu.Controls.Add(this.lblUsuario);
             this.pnlMenu.Controls.Add(this.picCerrar);
             this.pnlMenu.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.pnlMenu.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -115,16 +127,6 @@
             this.picCerrar.TabIndex = 31;
             this.picCerrar.TabStop = false;
             this.picCerrar.Click += new System.EventHandler(this.picCerrar_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::AplicaciónFuncional.Properties.Resources.logo1;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(112, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 75);
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
             // 
             // picCerrarSesion
             // 
@@ -228,6 +230,14 @@
             this.btnVentas.UseVisualStyleBackColor = false;
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
+            // lblUsuario
+            // 
+            this.lblUsuario.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(10, 10);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(100, 23);
+            this.lblUsuario.TabIndex = 32;
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,9 +260,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrarSesion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEstadisticas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picProductos)).EndInit();
@@ -276,5 +286,6 @@
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.PictureBox picCerrar;
+        private System.Windows.Forms.Label lblUsuario;
     }
 }

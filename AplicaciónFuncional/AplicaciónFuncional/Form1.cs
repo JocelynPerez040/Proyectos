@@ -14,13 +14,15 @@ namespace AplicaciónFuncional
     {
         int posX = 0;
         int posY = 0;
+        Conexion conex = new Conexion();
+        Propiedades user = new Propiedades();
+        Validacion val = new Validacion();
 
         public frmInicioSesion()
         {
             InitializeComponent();
             txtCorreo.Hide();
             picCorreo.Hide();
-            lblAdvertencia.Visible = false;
             btnCrear.Visible = false;
             this.picFondo.Location = new System.Drawing.Point(1, 88);
         }
@@ -45,7 +47,44 @@ namespace AplicaciónFuncional
         {
             if (MessageBox.Show("¿Desea salir?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                conex.Cerrar();
                 Application.Exit();
+            }
+        }
+
+        /***LABEL LINK***/
+        private void lbkOlvido_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (txtUsuario.Text == "")
+            {
+                MessageBox.Show("El campo de usuario está vacío. \n" +
+                    "Por favor digita tu usuario para enviar tu contraseña a tu correo electrónico.");
+            }
+            else
+            {
+                string usuario = txtUsuario.Text;
+
+                try
+                {
+                    string res = val.valCorreo(usuario);
+
+                    //Mira errores
+                    if (res.Length > 0)
+                    {
+                        MessageBox.Show(res, "¡Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtUsuario.Text = "";
+                        conex.Cerrar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡Correo enviado! \nRevise su bandeja de entrada ó su bandeja de spam.", "¡Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        conex.Cerrar();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error \n" + ex.Message);
+                }
             }
         }
 
@@ -66,6 +105,67 @@ namespace AplicaciónFuncional
             }
         }
 
+        private void btnRegistro_Click(object sender, EventArgs e)
+        {
+            this.btnMostrar.BackgroundImage = global::AplicaciónFuncional.Properties.Resources.mostrar;
+            this.btnMostrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            txtCorreo.Show();
+            picCorreo.Show();
+            btnIniciarSesion.Visible = false;
+            btnRegistro.Visible = false;
+            btnCrear.Visible = true;
+            lbkOlvido.Visible = false;
+            txtUsuario.Text = "";
+            txtContraseña.Text = "";
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            if (("@txtUsuario.Text" == "") || ("@txtContraseña.Text" == "") || (txtCorreo.Text == ""))
+            {
+                MessageBox.Show("¡Campos vacíos! \nDiligencia todos los campos para continuar", "Aviso");
+            }
+            else
+            {
+                this.btnMostrar.BackgroundImage = global::AplicaciónFuncional.Properties.Resources.mostrar;
+                this.btnMostrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+                txtContraseña.PasswordChar = '*';
+
+                user.Usuario = txtUsuario.Text;
+                user.Contraseña = txtContraseña.Text;
+                user.Correo = txtCorreo.Text;
+
+                try
+                {
+                    string res = val.valRegistro(user);
+
+                    //Mira si hay errores
+                    if (res.Length > 0)
+                    {
+                        MessageBox.Show(res, "¡Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtUsuario.Text = "";
+                        conex.Cerrar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario resgistrado exitosamente", "¡Aviso!", MessageBoxButtons.OK);
+                        txtCorreo.Hide();
+                        picCorreo.Hide();
+                        btnIniciarSesion.Visible = true;
+                        btnRegistro.Visible = true;
+                        btnCrear.Visible = false;
+                        lbkOlvido.Visible = true;
+                        txtCorreo.Text = "";
+                        conex.Cerrar();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error \n" + ex.Message);
+                }
+            }
+        }
+
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             this.btnMostrar.BackgroundImage = global::AplicaciónFuncional.Properties.Resources.mostrar;
@@ -75,52 +175,39 @@ namespace AplicaciónFuncional
 
             if ((txtUsuario.Text == "") || (txtContraseña.Text == ""))
             {
-                lblAdvertencia.Visible = true;
-                lblAdvertencia.Text = "¡Campo de Usuario o Contraseña vacíos!";
+                MessageBox.Show("¡Campos vacíos! \nDiligencia todos los campos para continuar", "Aviso");
             }
             else
             {
-                lblAdvertencia.Visible = false;
-                frmMenu FBien = new frmMenu();
-                this.Hide();
-                FBien.Show();
+                string usuario = txtUsuario.Text;
+                string contraseña = txtContraseña.Text;
+
+                try
+                {
+                    string res = val.valIniciarSesion(usuario, contraseña);
+
+                    //Mira si hay errores
+                    if (res.Length > 0)
+                    {
+                        MessageBox.Show(res, "¡Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtContraseña.Text = "";
+                        txtUsuario.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Inicio exitoso");
+                        frmMenu FMen = new frmMenu();
+                        this.Hide();
+                        FMen.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error \n" + ex.Message);
+                }
             }
         }
 
-        private void btnRegistro_Click(object sender, EventArgs e)
-        {
-            this.btnMostrar.BackgroundImage = global::AplicaciónFuncional.Properties.Resources.mostrar;
-            this.btnMostrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            txtCorreo.Show();
-            picCorreo.Show();
-            lblAdvertencia.Visible = false;
-            btnIniciarSesion.Visible = false;
-            btnRegistro.Visible = false;
-            btnCrear.Visible = true;
-            txtUsuario.Text = "";
-            txtContraseña.Text = "";
-        }
-
-        private void btnCrear_Click(object sender, EventArgs e)
-        {
-            if ((txtUsuario.Text == "") || (txtContraseña.Text == "") || (txtCorreo.Text == ""))
-            {
-                this.lblAdvertencia.Location = new System.Drawing.Point(17, 313);
-                lblAdvertencia.Visible = true;
-                lblAdvertencia.Text = "¡Campo de Usuario, Contraseña o Correo vacíos!";
-            }
-            else
-            {
-                lblAdvertencia.Visible = false;
-                this.btnMostrar.BackgroundImage = global::AplicaciónFuncional.Properties.Resources.mostrar;
-                this.btnMostrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-                txtCorreo.Hide();
-                picCorreo.Hide();
-                btnIniciarSesion.Visible = true;
-                btnRegistro.Visible = true;
-                btnCrear.Visible = false;
-                txtContraseña.PasswordChar = '*';
-            }
-        }
+        
     }
 }

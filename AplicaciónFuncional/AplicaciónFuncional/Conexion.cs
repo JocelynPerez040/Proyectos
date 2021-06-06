@@ -9,31 +9,38 @@ namespace AplicaciónFuncional
 {
     class Conexion
     {
-        string cadena = "Data Source= ;Initial Catalog= ;Integrated Security=True";
+        string cadena = "Data Source= localhost\\SQLEXPRESS;Initial Catalog=AplicacionFuncional ;Integrated Security=True";
         public SqlConnection conexion = new SqlConnection();
 
-        public Conexion() 
+        public Conexion()
         {
             conexion.ConnectionString = cadena;
         }
 
-        public void Abrir() 
+        public void Abrir()
         {
             try
             {
                 conexion.Open();
-                System.Windows.Forms.MessageBox.Show("Conexión abierta");
+                //System.Windows.Forms.MessageBox.Show("Abierta");
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show("Error al abrir la conexión"+ex.Message);
-                throw;
+                System.Windows.Forms.MessageBox.Show("Error al abrir la conexión" + ex.Message);
             }
         }
 
-        public void Cerrar() 
+        public void Cerrar()
         {
-            conexion.Close();
+            try
+            {
+                conexion.Close();
+                //System.Windows.Forms.MessageBox.Show("Cerrada");
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Error al abrir la conexión" + ex.Message);
+            }
         }
     }
 }
