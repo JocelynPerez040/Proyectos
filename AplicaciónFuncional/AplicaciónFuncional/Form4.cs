@@ -51,5 +51,131 @@ namespace AplicaciónFuncional
             this.Hide();
             FMen.Show();
         }
+
+        /***DATAGRIDVIEW***/
+        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvProductos.Rows[e.RowIndex];
+                txtCodigo.Text = row.Cells["Código"].Value.ToString();
+                txtDescripcion.Text = row.Cells["Descripción"].Value.ToString();
+                txtPrecio.Text = row.Cells["Precio"].Value.ToString();
+                nudCantidad.Text = row.Cells["Unidades"].Value.ToString();
+            }
+        }
+
+        /***FORMULARIO***/
+        private void frmProductos_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCodigo.Text == "")
+                {
+                    clsProductos productos = new clsProductos();
+                    dgvProductos.DataSource = productos.Consultar();
+                }
+                else
+                {
+                    clsProductos productos = new clsProductos();
+                    dgvProductos.DataSource = productos.Seleccionar(Convert.ToInt32(txtCodigo.Text));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al consultar el dato" + ex.Message);
+            }
+        }
+
+        /***BOTONES***/
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text=="" || txtDescripcion.Text=="" || txtPrecio.Text=="" || nudCantidad.Value==0)
+            {
+                MessageBox.Show("¡Hay campos vacíos! \n Por favor diligencia todos los campos.");
+            }
+            else
+            {
+                try
+                {
+                    clsProductos productos = new clsProductos(Convert.ToInt32(txtCodigo.Text), txtDescripcion.Text, Convert.ToDouble(txtPrecio.Text), Convert.ToInt32(nudCantidad.Value));
+                    productos.Ingresar();
+
+                    dgvProductos.DataSource = productos.Consultar();
+                    MessageBox.Show("Producto ingresado correctamente");
+                    
+                    txtCodigo.Text = "";
+                    txtDescripcion.Text = "";
+                    txtPrecio.Text = "";
+                    nudCantidad.Value = 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al ingresar el producto " + ex.Message);
+                }
+            }
+        }
+            
+
+        private void btnDescontinuar_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text == "" || txtDescripcion.Text == "" || txtPrecio.Text == "" || nudCantidad.Value == 0)
+            {
+                MessageBox.Show("¡Hay campos vacíos! \n Por favor selecciona la fila del dato que deseas descontinuar.");
+            }
+            else
+            {
+                try
+                {
+                    clsProductos productos = new clsProductos();
+                    productos.Descontinuar(Convert.ToInt32(txtCodigo.Text));
+
+                    dgvProductos.DataSource = productos.Consultar();
+                    MessageBox.Show("Producto eliminado con éxito");
+
+                    txtCodigo.Text = "";
+                    txtDescripcion.Text = "";
+                    txtPrecio.Text = "";
+                    nudCantidad.Value = 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al eliminar el producto " + ex.Message);
+                }
+            }            
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text == "" || txtDescripcion.Text == "" || txtPrecio.Text == "" || nudCantidad.Value == 0)
+            {
+                MessageBox.Show("¡Hay campos vacíos! \n Por favor selecciona la fila del dato que deseas modificar.");
+            }
+            else
+            {
+                try
+                {
+                    clsProductos productos = new clsProductos(Convert.ToInt32(txtCodigo.Text), txtDescripcion.Text, Convert.ToDouble(txtPrecio.Text), Convert.ToInt32(nudCantidad.Value));
+                    productos.Modificar();
+
+                    dgvProductos.DataSource = productos.Consultar();
+                    MessageBox.Show("Producto modificado con éxtio");
+
+                    txtCodigo.Text = "";
+                    txtDescripcion.Text = "";
+                    txtPrecio.Text = "";
+                    nudCantidad.Value = 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al modificar el producto" + ex.Message);
+                }
+            }            
+        }
+
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+
+        }        
     }
 }

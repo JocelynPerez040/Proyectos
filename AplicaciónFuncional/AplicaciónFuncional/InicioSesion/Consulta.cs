@@ -16,6 +16,7 @@ namespace AplicaciónFuncional
         public int Registro(Propiedades user)
         {
             reader.Close();
+            conex.Abrir();
             string sql = "INSERT INTO InicioSesion (Usuario, Contrasena, Correo) VALUES(@txtUsuario, @txtContraseña, @txtCorreo)";
             SqlCommand comando = new SqlCommand(sql, conex.conexion);
             comando.Parameters.AddWithValue("@txtUsuario", user.Usuario);
@@ -23,6 +24,7 @@ namespace AplicaciónFuncional
             comando.Parameters.AddWithValue("@txtCorreo", user.Correo);
 
             int res = comando.ExecuteNonQuery();
+            conex.Cerrar();
             return res;
         }
 
@@ -36,10 +38,14 @@ namespace AplicaciónFuncional
             reader = comando.ExecuteReader();
             if (reader.HasRows)
             {
+                conex.Cerrar();
+                reader.Close();
                 return true;
             }
             else
             {
+                conex.Cerrar();
+                reader.Close();
                 return false;
             }
         }
@@ -61,6 +67,7 @@ namespace AplicaciónFuncional
                 user.Contraseña = reader["Contrasena"].ToString();
                 user.Correo = reader["Correo"].ToString();
             }
+            conex.Cerrar();
             reader.Close();
             return user;
         }
@@ -82,6 +89,7 @@ namespace AplicaciónFuncional
                 user.Contraseña = reader["Contrasena"].ToString();
                 user.Correo = reader["Correo"].ToString();
             }
+            conex.Cerrar();
             reader.Close();
             return user;
         }

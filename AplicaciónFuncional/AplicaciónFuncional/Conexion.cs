@@ -34,6 +34,7 @@ namespace AplicaciónFuncional
         {
             try
             {
+                
                 conexion.Close();
                 //System.Windows.Forms.MessageBox.Show("Cerrada");
             }

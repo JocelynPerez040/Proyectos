@@ -73,12 +73,10 @@ namespace AplicaciónFuncional
                     {
                         MessageBox.Show(res, "¡Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtUsuario.Text = "";
-                        conex.Cerrar();
                     }
                     else
                     {
                         MessageBox.Show("¡Correo enviado! \nRevise su bandeja de entrada ó su bandeja de spam.", "¡Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        conex.Cerrar();
                     }
                 }
                 catch (Exception ex)
@@ -144,7 +142,6 @@ namespace AplicaciónFuncional
                     {
                         MessageBox.Show(res, "¡Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtUsuario.Text = "";
-                        conex.Cerrar();
                     }
                     else
                     {
@@ -156,7 +153,6 @@ namespace AplicaciónFuncional
                         btnCrear.Visible = false;
                         lbkOlvido.Visible = true;
                         txtCorreo.Text = "";
-                        conex.Cerrar();
                     }
                 }
                 catch (Exception ex)
@@ -207,7 +203,5 @@ namespace AplicaciónFuncional
                 }
             }
         }
-
-        
     }
 }

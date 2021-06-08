@@ -203,6 +203,7 @@
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.Size = new System.Drawing.Size(468, 186);
             this.dgvProductos.TabIndex = 33;
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             // 
             // btnIngresar
             // 
@@ -215,6 +216,7 @@
             this.btnIngresar.TabIndex = 34;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // btnDescontinuar
             // 
@@ -227,6 +229,7 @@
             this.btnDescontinuar.TabIndex = 35;
             this.btnDescontinuar.Text = "Descontinuar";
             this.btnDescontinuar.UseVisualStyleBackColor = false;
+            this.btnDescontinuar.Click += new System.EventHandler(this.btnDescontinuar_Click);
             // 
             // btnModificar
             // 
@@ -239,6 +242,7 @@
             this.btnModificar.TabIndex = 36;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnImportar
             // 
@@ -251,6 +255,7 @@
             this.btnImportar.TabIndex = 37;
             this.btnImportar.Text = "Importar";
             this.btnImportar.UseVisualStyleBackColor = false;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
             // frmProductos
             // 
@@ -279,6 +284,7 @@
             this.Opacity = 0.93D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form4";
+            this.Load += new System.EventHandler(this.frmProductos_Load);
             this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).EndInit();
