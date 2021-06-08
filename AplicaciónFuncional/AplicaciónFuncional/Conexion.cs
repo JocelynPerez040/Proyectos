@@ -23,6 +23,7 @@ namespace AplicaciónFuncional
             {
                 conexion.Open();
                 //System.Windows.Forms.MessageBox.Show("Abierta");
+
             }
             catch (Exception ex)
             {

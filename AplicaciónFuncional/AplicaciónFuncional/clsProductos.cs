@@ -14,6 +14,9 @@ namespace AplicaciónFuncional
         public string Descripción { get; set; }
         public double Precio { get; set; }
         public int Unidades { get; set; }
+
+        Conexion conexion = new Conexion();
+
         public clsProductos()
         {
         }
@@ -28,11 +31,9 @@ namespace AplicaciónFuncional
 
         public bool Ingresar()
         {
-            SqlConnection Conexion = new SqlConnection("server = localhost\\SQLEXPRESS; database = Funcional; Integrated Security = True");
-            Conexion.Open();
-
+            conexion.Abrir();
             string ingresar = "insert into Productos values(@Código, @Descripción, @Precio, @Unidades)";
-            SqlCommand sql = new SqlCommand(ingresar, Conexion);
+            SqlCommand sql = new SqlCommand(ingresar, conexion.conexion);
 
             sql.Parameters.AddWithValue("@Código", this.Código);
             sql.Parameters.AddWithValue("@Descripción", this.Descripción);
@@ -40,32 +41,30 @@ namespace AplicaciónFuncional
             sql.Parameters.AddWithValue("@Unidades", this.Unidades);
             sql.ExecuteNonQuery();
 
-            Conexion.Close();
+            conexion.Cerrar();
             return true;
         }
 
         public bool Descontinuar(int Código)
         {
-            SqlConnection Conexion = new SqlConnection("server = localhost\\SQLEXPRESS; database = Funcional; Integrated Security = True");
-            Conexion.Open();
+            conexion.Abrir();
 
             this.Código = Código;
             string eliminar = "delete Productos where Código = @Código";
-            SqlCommand sql = new SqlCommand(eliminar, Conexion);
+            SqlCommand sql = new SqlCommand(eliminar, conexion.conexion);
             sql.Parameters.AddWithValue("@Código", this.Código);
             sql.ExecuteNonQuery();
 
-            Conexion.Close();
+            conexion.Cerrar();
             return true;
         }
 
         public bool Modificar()
         {
-            SqlConnection Conexion = new SqlConnection("server = localhost\\SQLEXPRESS; database = Funcional; Integrated Security = True");
-            Conexion.Open();
+            conexion.Abrir();
 
             string Modificar = "update Productos set Código = @Código, Descripción = @Descripción, Precio = @Precio, Unidades = @Unidades where Código = @Código";
-            SqlCommand sql = new SqlCommand(Modificar, Conexion);
+            SqlCommand sql = new SqlCommand(Modificar, conexion.conexion);
 
             sql.Parameters.AddWithValue("@Código", this.Código);
             sql.Parameters.AddWithValue("@Descripción", this.Descripción);
@@ -73,43 +72,41 @@ namespace AplicaciónFuncional
             sql.Parameters.AddWithValue("@Unidades", this.Unidades);
             sql.ExecuteNonQuery();
 
-            Conexion.Close();
+            conexion.Cerrar();
             return true;
         }
 
         public DataTable Consultar()
         {
-            SqlConnection Conexion = new SqlConnection("server = localhost\\SQLEXPRESS; database = Funcional; Integrated Security = True");
-            Conexion.Open();
+            conexion.Abrir();
 
             DataTable dataTable = new DataTable();
             string Consulta = "select Código, Descripción, Precio, Unidades from Productos";
-            SqlCommand sql = new SqlCommand(Consulta, Conexion);
+            SqlCommand sql = new SqlCommand(Consulta, conexion.conexion);
 
             SqlDataAdapter sqlData = new SqlDataAdapter(sql);
             sqlData.Fill(dataTable);
 
-            Conexion.Close();
+            conexion.Cerrar();
             return dataTable;
 
         }
 
         public DataTable Seleccionar(int Código)
         {
-            SqlConnection Conexion = new SqlConnection("server = localhost\\SQLEXPRESS; database = Funcional; Integrated Security = True");
-            Conexion.Open();
+            conexion.Abrir();
 
             this.Código = Código;
             DataTable data = new DataTable();
             string Seleccionar = "select Código, Descripción, Precio, Unidades from Productos where Código = @Código";
-            SqlCommand sql = new SqlCommand(Seleccionar, Conexion);
+            SqlCommand sql = new SqlCommand(Seleccionar, conexion.conexion);
 
             sql.Parameters.AddWithValue("@Código", this.Código);
             SqlDataAdapter sqlData = new SqlDataAdapter(sql);
 
             sqlData.Fill(data);
 
-            Conexion.Close();
+            conexion.Cerrar();
             return data;
         }
     }

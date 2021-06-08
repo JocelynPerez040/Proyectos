@@ -39,3 +39,4 @@ D:\Visual C# Trabajos\ProyectoV3\AplicaciónFuncional\AplicaciónFuncional\obj\D
 D:\Visual C# Trabajos\ProyectoV3\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.csproj.CoreCompileInputs.cache
 D:\Visual C# Trabajos\ProyectoV3\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.exe
 D:\Visual C# Trabajos\ProyectoV3\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.pdb
+D:\Visual C# Trabajos\ProyectoV3\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.csproj.AssemblyReference.cache
