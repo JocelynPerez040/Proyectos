@@ -22,6 +22,7 @@ namespace AplicaciónFuncional
         {
             InitializeComponent();
             txtCorreo.Hide();
+            txtCorreo.Enabled = false;
             picCorreo.Hide();
             btnCrear.Visible = false;
             this.picFondo.Location = new System.Drawing.Point(1, 88);
@@ -110,6 +111,7 @@ namespace AplicaciónFuncional
             this.btnMostrar.BackgroundImage = global::AplicaciónFuncional.Properties.Resources.mostrar;
             this.btnMostrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             txtCorreo.Show();
+            txtCorreo.Enabled = true;
             picCorreo.Show();
             btnIniciarSesion.Visible = false;
             btnRegistro.Visible = false;
@@ -150,6 +152,7 @@ namespace AplicaciónFuncional
                     {
                         MessageBox.Show("Usuario resgistrado exitosamente", "¡Aviso!", MessageBoxButtons.OK);
                         txtCorreo.Hide();
+                        txtCorreo.Enabled = false;
                         picCorreo.Hide();
                         btnIniciarSesion.Visible = true;
                         btnRegistro.Visible = true;
@@ -208,21 +211,63 @@ namespace AplicaciónFuncional
             }
         }
 
+
+
         private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (txtCorreo.Enabled == false)
             {
-                btnIniciarSesion_Click(sender, e);  //llamar el metodo
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {                
+                    btnIniciarSesion_Click(sender, e);  //llamar el metodo
+
+                }
+            }
+            else
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    btnCrear_Click(sender, e);  //llamar el metodo
+                }
+            }
+
+        }
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtCorreo.Enabled == false)
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    btnIniciarSesion_Click(sender, e);  //llamar el metodo
+                }
+            }
+            else
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    btnCrear_Click(sender, e);  //llamar el metodo
+                }
             }
 
         }
 
-        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (txtCorreo.Enabled == false)
             {
-                btnIniciarSesion_Click(sender, e);  //llamar el metodo
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    btnIniciarSesion_Click(sender, e);  //llamar el metodo
+                }
             }
+            else
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    btnCrear_Click(sender, e);  //llamar el metodo
+                }
+            }
+
         }
     }
 }
