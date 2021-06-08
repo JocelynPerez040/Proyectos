@@ -51,5 +51,91 @@ namespace AplicaciónFuncional
             this.Hide();
             FMen.Show();
         }
+
+        private void frmProductos_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCodigo.Text == "")
+                {
+                    clsProductos productos = new clsProductos();
+                    dgvProductos.DataSource = productos.Consultar();
+                }
+                else
+                {
+                    clsProductos productos = new clsProductos();
+                    dgvProductos.DataSource = productos.Seleccionar(Convert.ToInt32(txtCodigo.Text));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al consultar el dato" + ex.Message);
+            }
+
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                clsProductos productos = new clsProductos(Convert.ToInt32(txtCodigo.Text), txtDescripcion.Text, Convert.ToDouble(txtPrecio.Text), Convert.ToInt32(nudCantidad.Value));
+
+                productos.Ingresar();
+
+                MessageBox.Show("Producto ingresado correctamente");
+                dgvProductos.DataSource = productos.Consultar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ingresar el producto " + ex.Message);
+            }
+
+        }
+
+        private void btnDescontinuar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                clsProductos productos = new clsProductos();
+
+                productos.Descontinuar(Convert.ToInt32(txtCodigo.Text));
+
+                dgvProductos.DataSource = productos.Consultar();
+
+                MessageBox.Show("Producto eliminado con éxito");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar el producto " + ex.Message);
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                clsProductos productos = new clsProductos(Convert.ToInt32(txtCodigo.Text), txtDescripcion.Text, Convert.ToDouble(txtPrecio.Text), Convert.ToInt32(nudCantidad.Value));
+                productos.Modificar();
+
+                dgvProductos.DataSource = productos.Consultar();
+                MessageBox.Show("Producto modificado con éxtio");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar el producto" + ex.Message);
+            }
+        }
+
+        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvProductos.Rows[e.RowIndex];
+                txtCodigo.Text = row.Cells["Código"].Value.ToString();
+                txtDescripcion.Text = row.Cells["Descripción"].Value.ToString();
+                txtPrecio.Text = row.Cells["Precio"].Value.ToString();
+                nudCantidad.Text = row.Cells["Unidades"].Value.ToString();
+            }
+        }
     }
 }

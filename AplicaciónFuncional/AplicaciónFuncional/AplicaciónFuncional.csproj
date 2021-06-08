@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsProductos.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="InicioSesion\Consulta.cs" />
     <Compile Include="Form1.cs">
