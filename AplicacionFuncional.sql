@@ -9,4 +9,3 @@ PRIMARY KEY(Usuario)
 )
 
 select * from InicioSesion
-delete from InicioSesion where Usuario = 'v' 
