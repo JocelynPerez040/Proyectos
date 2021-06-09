@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsProductos.cs" />
+    <Compile Include="clsVentas.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="InicioSesion\Consulta.cs" />
     <Compile Include="frmInicioSesion.cs">

@@ -50,6 +50,42 @@ namespace AplicaciónFuncional
             frmMenu FMen = new frmMenu();
             this.Hide();
             FMen.Show();
-        }        
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                clsVentas ventas = new clsVentas(cmbMes.Text, Convert.ToInt32(nudCantidad.Value), Convert.ToInt32(txtProducto.Text));
+
+                ventas.AgregarVenta();
+
+                MessageBox.Show("Venta agregada con exito");
+
+                grvProducto.DataSource = ventas.ConsultarVenta();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ingresar la venta" + ex.Message);
+            }
+        }
+
+
+
+        private void frmVentas_Load(object sender, EventArgs e)
+        {
+            clsVentas ventas = new clsVentas();
+            cmbProductos.Items.AddRange(ventas.LlenarCbxProducto().ToArray());            
+
+        }
+
+        private void cmbProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            clsVentas ventas = new clsVentas();
+            if (cmbProductos.Text != null)
+            {
+                txtProducto.Text = ventas.TraerCodigo(cmbProductos.Text).ToString();
+            }
+        }
     }
 }

@@ -98,6 +98,7 @@
             this.cmbProductos.Name = "cmbProductos";
             this.cmbProductos.Size = new System.Drawing.Size(121, 23);
             this.cmbProductos.TabIndex = 24;
+            this.cmbProductos.SelectedIndexChanged += new System.EventHandler(this.cmbProductos_SelectedIndexChanged);
             // 
             // txtProducto
             // 
@@ -106,6 +107,7 @@
             this.txtProducto.Location = new System.Drawing.Point(191, 172);
             this.txtProducto.Multiline = true;
             this.txtProducto.Name = "txtProducto";
+            this.txtProducto.ReadOnly = true;
             this.txtProducto.Size = new System.Drawing.Size(105, 23);
             this.txtProducto.TabIndex = 25;
             // 
@@ -181,6 +183,19 @@
             this.cmbMes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbMes.Font = new System.Drawing.Font("NSimSun", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMes.FormattingEnabled = true;
+            this.cmbMes.Items.AddRange(new object[] {
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"});
             this.cmbMes.Location = new System.Drawing.Point(225, 232);
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(121, 23);
@@ -199,6 +214,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(58, 57);
             this.btnAgregar.TabIndex = 33;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // picAtras
             // 
@@ -235,6 +251,7 @@
             this.Opacity = 0.93D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmVentas";
+            this.Load += new System.EventHandler(this.frmVentas_Load);
             this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).EndInit();
