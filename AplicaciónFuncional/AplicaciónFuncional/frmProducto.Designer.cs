@@ -48,6 +48,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnImportar = new System.Windows.Forms.Button();
             this.FdProductos = new System.Windows.Forms.OpenFileDialog();
+            this.btnExportarXLSX = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).BeginInit();
@@ -264,12 +265,27 @@
             // 
             this.FdProductos.FileName = "openFileDialog1";
             // 
+            // btnExportarXLSX
+            // 
+            this.btnExportarXLSX.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnExportarXLSX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportarXLSX.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportarXLSX.ForeColor = System.Drawing.Color.Black;
+            this.btnExportarXLSX.Location = new System.Drawing.Point(548, 301);
+            this.btnExportarXLSX.Name = "btnExportarXLSX";
+            this.btnExportarXLSX.Size = new System.Drawing.Size(103, 40);
+            this.btnExportarXLSX.TabIndex = 38;
+            this.btnExportarXLSX.Text = "Exportar a excel";
+            this.btnExportarXLSX.UseVisualStyleBackColor = false;
+            this.btnExportarXLSX.Click += new System.EventHandler(this.btnExportarXLSX_Click);
+            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(658, 497);
+            this.Controls.Add(this.btnExportarXLSX);
             this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnDescontinuar);
@@ -326,5 +342,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnImportar;
         private System.Windows.Forms.OpenFileDialog FdProductos;
+        private System.Windows.Forms.Button btnExportarXLSX;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpreadsheetLight;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -72,6 +73,7 @@ namespace AplicaciónFuncional
         /***FORMULARIO***/
         private void frmProductos_Load(object sender, EventArgs e)
         {
+            
             dgvProductos.AllowUserToAddRows = false;
             try
             {
@@ -198,6 +200,26 @@ namespace AplicaciónFuncional
                 {
                     MessageBox.Show("Error" + ex);
                 }
+            }
+        }
+
+        private void btnExportarXLSX_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileXlsx = new SaveFileDialog() { Filter = "Archivo XLSX|*.xlsx" };
+            if (saveFileXlsx.ShowDialog() == DialogResult.OK)
+            {
+                SLDocument sl = new SLDocument();
+
+                int iR = 1;
+                foreach (DataGridViewRow row in dgvProductos.Rows)
+                {
+                    sl.SetCellValue(iR, 1, row.Cells[0].Value.ToString());
+                    sl.SetCellValue(iR, 2, row.Cells[1].Value.ToString());
+                    sl.SetCellValue(iR, 3, row.Cells[2].Value.ToString());
+                    sl.SetCellValue(iR, 4, row.Cells[3].Value.ToString());
+                    iR += 1;
+                }
+                sl.SaveAs(saveFileXlsx.FileName);
             }
         }
     }

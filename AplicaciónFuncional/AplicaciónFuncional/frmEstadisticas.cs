@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace AplicaciónFuncional
 {
     public partial class frmEstadisticas : Form
@@ -55,18 +56,30 @@ namespace AplicaciónFuncional
 
         private void frmEstadisticas_Load(object sender, EventArgs e)
         {
-            List<Object> codigo = new List<object>();
             clsEstadisticas estadisticas = new clsEstadisticas();
-            codigo.Add(estadisticas.LLenarCodigo());
             cmbMes.Items.AddRange(estadisticas.LLenarMes().ToArray());
-            cmbProducto.Items.AddRange(codigo.ToArray());
+            cmbProducto.Items.AddRange(estadisticas.LLenarProducto().ToArray());
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             clsEstadisticas Est = new clsEstadisticas();
-            string mes = cmbMes.Text;var prod = Convert.ToInt32(cmbProducto.Text);
-            crtEstadisticas.Series[0].Points.DataBindXY(Est.NombreProductos(mes, prod), Est.CantidadProductos(mes, prod));
+            string mes = cmbMes.Text;
+            int prod = Est.TraerCodigo(cmbProducto.Text);
+            crtEstadisticas.Series[0].Points.DataBindXY(Est.NombreProductos(mes, prod).ToArray(), Est.CantidadProductos(mes, prod));
         }
+
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileCSV = new SaveFileDialog() { Filter = "Archivo CSV|*.csv" };
+            if(saveFileCSV.ShowDialog() == DialogResult.OK)
+            {
+                ExportarArchivos EA = new ExportarArchivos();
+                EA.ExportarCSV(saveFileCSV.FileName);
+                MessageBox.Show("Se ha exportato la base de datos correctamente correctamente ");
+            }
+        }
+
+      
     }
 }

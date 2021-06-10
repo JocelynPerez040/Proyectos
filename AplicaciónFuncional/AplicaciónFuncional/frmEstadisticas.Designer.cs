@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -39,19 +42,19 @@
             this.lblMes = new System.Windows.Forms.Label();
             this.grpEstadisticas = new System.Windows.Forms.GroupBox();
             this.lblEnunciado = new System.Windows.Forms.Label();
-            this.btnImportar = new System.Windows.Forms.Button();
-            this.btnExportar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnExportarCSV = new System.Windows.Forms.Button();
             this.crtEstadisticas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbProducto = new System.Windows.Forms.ComboBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.picAtras)).BeginInit();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).BeginInit();
             this.grpEstadisticas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.crtEstadisticas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // picAtras
@@ -110,7 +113,7 @@
             this.cmbMes.Location = new System.Drawing.Point(66, 172);
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(90, 23);
-            this.cmbMes.TabIndex = 26;
+            this.cmbMes.TabIndex = 1;
             // 
             // lblMes
             // 
@@ -141,59 +144,37 @@
             this.lblEnunciado.Text = "En esta ventana podrás visualizr algunas estadísticas de tu negocio mes a mes.\r\nY" +
     " enterarte de como va creciendo.";
             // 
-            // btnImportar
+            // btnExportarCSV
             // 
-            this.btnImportar.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportar.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportar.ForeColor = System.Drawing.Color.Black;
-            this.btnImportar.Location = new System.Drawing.Point(73, 434);
-            this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(83, 40);
-            this.btnImportar.TabIndex = 32;
-            this.btnImportar.Text = "Importar XLSX";
-            this.btnImportar.UseVisualStyleBackColor = false;
-            // 
-            // btnExportar
-            // 
-            this.btnExportar.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportar.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportar.ForeColor = System.Drawing.Color.Black;
-            this.btnExportar.Location = new System.Drawing.Point(216, 434);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(82, 40);
-            this.btnExportar.TabIndex = 33;
-            this.btnExportar.Text = "Exportar CSV";
-            this.btnExportar.UseVisualStyleBackColor = false;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(354, 434);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 40);
-            this.btnGuardar.TabIndex = 34;
-            this.btnGuardar.Text = "Guardar XLSX";
-            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnExportarCSV.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnExportarCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportarCSV.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportarCSV.ForeColor = System.Drawing.Color.Black;
+            this.btnExportarCSV.Location = new System.Drawing.Point(112, 446);
+            this.btnExportarCSV.Name = "btnExportarCSV";
+            this.btnExportarCSV.Size = new System.Drawing.Size(274, 26);
+            this.btnExportarCSV.TabIndex = 4;
+            this.btnExportarCSV.Text = "Exportar base de datos a CSV";
+            this.btnExportarCSV.UseVisualStyleBackColor = false;
+            this.btnExportarCSV.Click += new System.EventHandler(this.btnImportar_Click);
             // 
             // crtEstadisticas
             // 
-            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea2.Name = "ChartArea1";
-            this.crtEstadisticas.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.crtEstadisticas.Legends.Add(legend2);
+            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.Name = "ChartArea1";
+            this.crtEstadisticas.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.crtEstadisticas.Legends.Add(legend1);
             this.crtEstadisticas.Location = new System.Drawing.Point(67, 217);
             this.crtEstadisticas.Name = "crtEstadisticas";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.crtEstadisticas.Series.Add(series2);
-            this.crtEstadisticas.Size = new System.Drawing.Size(351, 195);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.Red;
+            series1.Legend = "Legend1";
+            series1.Name = "Ventas";
+            this.crtEstadisticas.Series.Add(series1);
+            this.crtEstadisticas.Size = new System.Drawing.Size(351, 203);
             this.crtEstadisticas.TabIndex = 35;
             this.crtEstadisticas.Text = "chart1";
             // 
@@ -206,7 +187,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(354, 170);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(82, 25);
-            this.btnBuscar.TabIndex = 36;
+            this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -217,9 +198,9 @@
             this.label1.Font = new System.Drawing.Font("NSimSun", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(193, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 15);
+            this.label1.Size = new System.Drawing.Size(71, 15);
             this.label1.TabIndex = 38;
-            this.label1.Text = "Codigo";
+            this.label1.Text = "Producto";
             // 
             // cmbProducto
             // 
@@ -228,7 +209,23 @@
             this.cmbProducto.Location = new System.Drawing.Point(195, 172);
             this.cmbProducto.Name = "cmbProducto";
             this.cmbProducto.Size = new System.Drawing.Size(90, 23);
-            this.cmbProducto.TabIndex = 37;
+            this.cmbProducto.TabIndex = 2;
+            // 
+            // chart1
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(263, 272);
+            this.chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(8, 8);
+            this.chart1.TabIndex = 39;
+            this.chart1.Text = "chart1";
             // 
             // frmEstadisticas
             // 
@@ -236,13 +233,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(501, 512);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbProducto);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.crtEstadisticas);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnExportar);
-            this.Controls.Add(this.btnImportar);
+            this.Controls.Add(this.btnExportarCSV);
             this.Controls.Add(this.grpEstadisticas);
             this.Controls.Add(this.lblMes);
             this.Controls.Add(this.cmbMes);
@@ -260,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).EndInit();
             this.grpEstadisticas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.crtEstadisticas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,12 +272,11 @@
         private System.Windows.Forms.Label lblMes;
         private System.Windows.Forms.GroupBox grpEstadisticas;
         private System.Windows.Forms.Label lblEnunciado;
-        private System.Windows.Forms.Button btnImportar;
-        private System.Windows.Forms.Button btnExportar;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnExportarCSV;
         private System.Windows.Forms.DataVisualization.Charting.Chart crtEstadisticas;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbProducto;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

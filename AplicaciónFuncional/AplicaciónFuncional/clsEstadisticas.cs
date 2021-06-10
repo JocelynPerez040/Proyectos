@@ -29,16 +29,16 @@ namespace AplicaciónFuncional
             return meses;
         }
 
-        public List<int> LLenarCodigo()
+        public List<string> LLenarProducto()
         {
-            List<int> meses = new List<int>();
+            List<string> meses = new List<string>();
             conexion.Abrir();
-            SqlCommand cmd = new SqlCommand("SELECT Código FROM Productos", conexion.conexion);
+            SqlCommand cmd = new SqlCommand("SELECT Descripción FROM Productos", conexion.conexion);
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                meses.Add(Convert.ToInt32(reader["Código"]));
+                meses.Add(reader["Descripción"].ToString());
             }
 
             reader.Close();
@@ -55,7 +55,7 @@ namespace AplicaciónFuncional
 
             while (rd.Read())
             {
-                Cantidad.Add(rd.GetInt32(0));
+                Cantidad.Add(rd.GetInt32(1));
             }
             conexion.Cerrar();
             rd.Close();
@@ -71,11 +71,30 @@ namespace AplicaciónFuncional
 
             while (reader.Read())
             {
-                Nombre.Add(reader.GetString(1));
+                Nombre.Add(reader.GetString(0));
             }
             conexion.Cerrar();
             reader.Close();
             return Nombre;
+        }
+
+        public int TraerCodigo(string Descripción)
+        {
+            int CodProducto = -1;
+            conexion.Abrir();
+            SqlCommand cmd = new SqlCommand("SELECT Código FROM Productos where Descripción = @Descripción", conexion.conexion);
+            cmd.Parameters.AddWithValue("@Descripción", Descripción);
+            cmd.ExecuteNonQuery();
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                CodProducto = Convert.ToInt32(reader["Código"]);
+            }
+
+            reader.Close();
+            conexion.Cerrar();
+            return CodProducto;
         }
 
     }
