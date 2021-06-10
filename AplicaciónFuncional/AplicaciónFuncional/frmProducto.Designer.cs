@@ -46,7 +46,8 @@
             this.btnIngresar = new System.Windows.Forms.Button();
             this.btnDescontinuar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.btnExportar = new System.Windows.Forms.Button();
+            this.btnImportar = new System.Windows.Forms.Button();
+            this.FdProductos = new System.Windows.Forms.OpenFileDialog();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).BeginInit();
@@ -245,17 +246,23 @@
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // btnExportar
+            // btnImportar
             // 
-            this.btnExportar.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportar.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportar.Location = new System.Drawing.Point(548, 229);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(90, 43);
-            this.btnExportar.TabIndex = 36;
-            this.btnExportar.Text = "Exportar a Excel";
-            this.btnExportar.UseVisualStyleBackColor = false;
+            this.btnImportar.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnImportar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportar.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportar.Location = new System.Drawing.Point(548, 229);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(90, 43);
+            this.btnImportar.TabIndex = 36;
+            this.btnImportar.Text = "Importar CSV_TXT";
+            this.btnImportar.UseVisualStyleBackColor = false;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
+            // 
+            // FdProductos
+            // 
+            this.FdProductos.FileName = "openFileDialog1";
             // 
             // frmProductos
             // 
@@ -263,7 +270,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(658, 497);
-            this.Controls.Add(this.btnExportar);
+            this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnDescontinuar);
             this.Controls.Add(this.btnIngresar);
@@ -317,6 +324,7 @@
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Button btnDescontinuar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.Button btnImportar;
+        private System.Windows.Forms.OpenFileDialog FdProductos;
     }
 }

@@ -22,7 +22,6 @@ namespace AplicaciónFuncional
         {
             InitializeComponent();
             txtCorreo.Hide();
-            txtCorreo.Enabled = false;
             picCorreo.Hide();
             btnCrear.Visible = false;
             this.picFondo.Location = new System.Drawing.Point(1, 88);
@@ -64,11 +63,9 @@ namespace AplicaciónFuncional
             else
             {
                 string usuario = txtUsuario.Text;
-
                 try
                 {
                     string res = val.valCorreo(usuario);
-
                     //Mira errores
                     if (res.Length > 0)
                     {
@@ -211,8 +208,7 @@ namespace AplicaciónFuncional
             }
         }
 
-
-
+        /***CAJAS DE TEXTO***/
         private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (txtCorreo.Enabled == false)
@@ -220,7 +216,6 @@ namespace AplicaciónFuncional
                 if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {                
                     btnIniciarSesion_Click(sender, e);  //llamar el metodo
-
                 }
             }
             else
@@ -230,8 +225,8 @@ namespace AplicaciónFuncional
                     btnCrear_Click(sender, e);  //llamar el metodo
                 }
             }
-
         }
+
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (txtCorreo.Enabled == false)
@@ -248,7 +243,6 @@ namespace AplicaciónFuncional
                     btnCrear_Click(sender, e);  //llamar el metodo
                 }
             }
-
         }
 
         private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
@@ -267,7 +261,6 @@ namespace AplicaciónFuncional
                     btnCrear_Click(sender, e);  //llamar el metodo
                 }
             }
-
         }
     }
 }
