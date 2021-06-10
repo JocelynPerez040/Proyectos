@@ -40,3 +40,17 @@ D:\Visual C# Trabajos\ProyectoV3\AplicaciónFuncional\AplicaciónFuncional\obj\D
 D:\Visual C# Trabajos\ProyectoV3\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.exe
 D:\Visual C# Trabajos\ProyectoV3\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.pdb
 D:\Visual C# Trabajos\ProyectoV3\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.csproj.AssemblyReference.cache
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\bin\Debug\AplicaciónFuncional.exe.config
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\bin\Debug\AplicaciónFuncional.exe
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\bin\Debug\AplicaciónFuncional.pdb
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.csprojAssemblyReference.cache
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.frmInicioSesion.resources
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.frmMenu.resources
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.frmVentas.resources
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.frmProductos.resources
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.frmEstadisticas.resources
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.Properties.Resources.resources
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.csproj.GenerateResource.cache
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.csproj.CoreCompileInputs.cache
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.exe
+C:\Users\carlo\Source\Repos\Proyectos\AplicaciónFuncional\AplicaciónFuncional\obj\Debug\AplicaciónFuncional.pdb

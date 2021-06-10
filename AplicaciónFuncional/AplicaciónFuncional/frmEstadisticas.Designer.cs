@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.picAtras = new System.Windows.Forms.PictureBox();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -36,18 +39,19 @@
             this.lblMes = new System.Windows.Forms.Label();
             this.grpEstadisticas = new System.Windows.Forms.GroupBox();
             this.lblEnunciado = new System.Windows.Forms.Label();
-            this.dgvEstadisticas = new System.Windows.Forms.DataGridView();
-            this.lblProducto = new System.Windows.Forms.Label();
-            this.cmbProducto = new System.Windows.Forms.ComboBox();
             this.btnImportar = new System.Windows.Forms.Button();
             this.btnExportar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.crtEstadisticas = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbProducto = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.picAtras)).BeginInit();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).BeginInit();
             this.grpEstadisticas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEstadisticas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crtEstadisticas)).BeginInit();
             this.SuspendLayout();
             // 
             // picAtras
@@ -103,7 +107,7 @@
             // 
             this.cmbMes.Font = new System.Drawing.Font("NSimSun", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMes.FormattingEnabled = true;
-            this.cmbMes.Location = new System.Drawing.Point(69, 194);
+            this.cmbMes.Location = new System.Drawing.Point(66, 172);
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(90, 23);
             this.cmbMes.TabIndex = 26;
@@ -112,7 +116,7 @@
             // 
             this.lblMes.AutoSize = true;
             this.lblMes.Font = new System.Drawing.Font("NSimSun", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMes.Location = new System.Drawing.Point(67, 176);
+            this.lblMes.Location = new System.Drawing.Point(64, 154);
             this.lblMes.Name = "lblMes";
             this.lblMes.Size = new System.Drawing.Size(31, 15);
             this.lblMes.TabIndex = 27;
@@ -137,40 +141,13 @@
             this.lblEnunciado.Text = "En esta ventana podrás visualizr algunas estadísticas de tu negocio mes a mes.\r\nY" +
     " enterarte de como va creciendo.";
             // 
-            // dgvEstadisticas
-            // 
-            this.dgvEstadisticas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEstadisticas.Location = new System.Drawing.Point(39, 242);
-            this.dgvEstadisticas.Name = "dgvEstadisticas";
-            this.dgvEstadisticas.Size = new System.Drawing.Size(422, 147);
-            this.dgvEstadisticas.TabIndex = 29;
-            // 
-            // lblProducto
-            // 
-            this.lblProducto.AutoSize = true;
-            this.lblProducto.Font = new System.Drawing.Font("NSimSun", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProducto.Location = new System.Drawing.Point(217, 176);
-            this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(71, 15);
-            this.lblProducto.TabIndex = 31;
-            this.lblProducto.Text = "Producto";
-            // 
-            // cmbProducto
-            // 
-            this.cmbProducto.Font = new System.Drawing.Font("NSimSun", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbProducto.FormattingEnabled = true;
-            this.cmbProducto.Location = new System.Drawing.Point(219, 194);
-            this.cmbProducto.Name = "cmbProducto";
-            this.cmbProducto.Size = new System.Drawing.Size(90, 23);
-            this.cmbProducto.TabIndex = 30;
-            // 
             // btnImportar
             // 
             this.btnImportar.BackColor = System.Drawing.Color.Gainsboro;
             this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportar.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportar.ForeColor = System.Drawing.Color.Black;
-            this.btnImportar.Location = new System.Drawing.Point(76, 411);
+            this.btnImportar.Location = new System.Drawing.Point(73, 434);
             this.btnImportar.Name = "btnImportar";
             this.btnImportar.Size = new System.Drawing.Size(83, 40);
             this.btnImportar.TabIndex = 32;
@@ -183,7 +160,7 @@
             this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportar.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportar.ForeColor = System.Drawing.Color.Black;
-            this.btnExportar.Location = new System.Drawing.Point(206, 411);
+            this.btnExportar.Location = new System.Drawing.Point(216, 434);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(82, 40);
             this.btnExportar.TabIndex = 33;
@@ -196,12 +173,62 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(332, 411);
+            this.btnGuardar.Location = new System.Drawing.Point(354, 434);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 40);
             this.btnGuardar.TabIndex = 34;
             this.btnGuardar.Text = "Guardar XLSX";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            // 
+            // crtEstadisticas
+            // 
+            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.Name = "ChartArea1";
+            this.crtEstadisticas.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.crtEstadisticas.Legends.Add(legend2);
+            this.crtEstadisticas.Location = new System.Drawing.Point(67, 217);
+            this.crtEstadisticas.Name = "crtEstadisticas";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.crtEstadisticas.Series.Add(series2);
+            this.crtEstadisticas.Size = new System.Drawing.Size(351, 195);
+            this.crtEstadisticas.TabIndex = 35;
+            this.crtEstadisticas.Text = "chart1";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("NSimSun", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscar.Location = new System.Drawing.Point(354, 170);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(82, 25);
+            this.btnBuscar.TabIndex = 36;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("NSimSun", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(193, 154);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 15);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Codigo";
+            // 
+            // cmbProducto
+            // 
+            this.cmbProducto.Font = new System.Drawing.Font("NSimSun", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbProducto.FormattingEnabled = true;
+            this.cmbProducto.Location = new System.Drawing.Point(195, 172);
+            this.cmbProducto.Name = "cmbProducto";
+            this.cmbProducto.Size = new System.Drawing.Size(90, 23);
+            this.cmbProducto.TabIndex = 37;
             // 
             // frmEstadisticas
             // 
@@ -209,12 +236,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(501, 512);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbProducto);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.crtEstadisticas);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.btnImportar);
-            this.Controls.Add(this.lblProducto);
-            this.Controls.Add(this.cmbProducto);
-            this.Controls.Add(this.dgvEstadisticas);
             this.Controls.Add(this.grpEstadisticas);
             this.Controls.Add(this.lblMes);
             this.Controls.Add(this.cmbMes);
@@ -225,12 +253,13 @@
             this.Opacity = 0.93D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form5";
+            this.Load += new System.EventHandler(this.frmEstadisticas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picAtras)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).EndInit();
             this.grpEstadisticas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEstadisticas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crtEstadisticas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,12 +274,13 @@
         private System.Windows.Forms.ComboBox cmbMes;
         private System.Windows.Forms.Label lblMes;
         private System.Windows.Forms.GroupBox grpEstadisticas;
-        private System.Windows.Forms.DataGridView dgvEstadisticas;
         private System.Windows.Forms.Label lblEnunciado;
-        private System.Windows.Forms.Label lblProducto;
-        private System.Windows.Forms.ComboBox cmbProducto;
         private System.Windows.Forms.Button btnImportar;
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.DataVisualization.Charting.Chart crtEstadisticas;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbProducto;
     }
 }
