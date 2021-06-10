@@ -12,6 +12,7 @@ namespace AplicaciónFuncional
 {
     public partial class frmVentas : Form
     {
+        clsVentas ventas = new clsVentas();
         int posX = 0;
         int posY = 0;
 
@@ -52,6 +53,14 @@ namespace AplicaciónFuncional
             FMen.Show();
         }
 
+        /***FORMULARIO***/
+        private void frmVentas_Load(object sender, EventArgs e)
+        {
+            grvProducto.AllowUserToAddRows = false;
+            cmbProductos.Items.AddRange(ventas.LlenarCbxProducto().ToArray());
+        }
+
+        /***BOTÓN***/
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -69,19 +78,10 @@ namespace AplicaciónFuncional
                 MessageBox.Show("Error al ingresar la venta" + ex.Message);
             }
         }
-
-
-
-        private void frmVentas_Load(object sender, EventArgs e)
-        {
-            clsVentas ventas = new clsVentas();
-            cmbProductos.Items.AddRange(ventas.LlenarCbxProducto().ToArray());            
-
-        }
-
+        
+        /***COMBOBOX***/
         private void cmbProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            clsVentas ventas = new clsVentas();
             if (cmbProductos.Text != null)
             {
                 txtProducto.Text = ventas.TraerCodigo(cmbProductos.Text).ToString();

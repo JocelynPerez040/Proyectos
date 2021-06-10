@@ -10,15 +10,15 @@ namespace AplicaciónFuncional
 {
     class clsVentas
     {
+        Conexion conexion = new Conexion();
+
         public string Mes { get; set; }
         public int CanVendida { get; set; }
         public int Código { get; set; }
-        public string Descripción { get; set; }
-        Conexion conexion = new Conexion();
+        public string Descripción { get; set; }        
 
         public clsVentas()
         {
-
         }
 
         public clsVentas(string Mes, int CanVendida, int Código)
@@ -73,7 +73,6 @@ namespace AplicaciónFuncional
                 CodProducto = Convert.ToInt32(reader["Código"]);
             }
 
-
             reader.Close();
             conexion.Cerrar();
             return CodProducto;
@@ -96,6 +95,5 @@ namespace AplicaciónFuncional
             conexion.Cerrar();
             return Productos;
         }
-
     }
 }
