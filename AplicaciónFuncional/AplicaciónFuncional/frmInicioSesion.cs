@@ -22,6 +22,7 @@ namespace AplicaciónFuncional
         {
             InitializeComponent();
             txtCorreo.Hide();
+            txtCorreo.Enabled = false;
             picCorreo.Hide();
             btnCrear.Visible = false;
             this.picFondo.Location = new System.Drawing.Point(1, 88);
