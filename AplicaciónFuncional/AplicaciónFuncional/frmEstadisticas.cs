@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,6 +51,22 @@ namespace AplicaciónFuncional
             frmMenu FMen = new frmMenu();
             this.Hide();
             FMen.Show();
+        }
+
+        private void frmEstadisticas_Load(object sender, EventArgs e)
+        {
+            List<Object> codigo = new List<object>();
+            clsEstadisticas estadisticas = new clsEstadisticas();
+            codigo.Add(estadisticas.LLenarCodigo());
+            cmbMes.Items.AddRange(estadisticas.LLenarMes().ToArray());
+            cmbProducto.Items.AddRange(codigo.ToArray());
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            clsEstadisticas Est = new clsEstadisticas();
+            string mes = cmbMes.Text;var prod = Convert.ToInt32(cmbProducto.Text);
+            crtEstadisticas.Series[0].Points.DataBindXY(Est.NombreProductos(mes, prod), Est.CantidadProductos(mes, prod));
         }
     }
 }
