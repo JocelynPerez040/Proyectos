@@ -22,7 +22,6 @@ namespace AplicaciónFuncional
             try
             {
                 conexion.Open();
-                //System.Windows.Forms.MessageBox.Show("Abierta");
             }
             catch (Exception ex)
             {
@@ -34,9 +33,7 @@ namespace AplicaciónFuncional
         {
             try
             {
-                
                 conexion.Close();
-                //System.Windows.Forms.MessageBox.Show("Cerrada");
             }
             catch (Exception ex)
             {
