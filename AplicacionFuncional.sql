@@ -9,3 +9,14 @@ PRIMARY KEY(Usuario)
 )
 
 select * from InicioSesion
+delete from InicioSesion where Correo = 'r' 
+
+CREATE TABLE Productos(
+Código bigint not null,
+Descripción varchar(30) not null,
+Precio float not null,
+Unidades bigint not null,
+PRIMARY KEY(Código)
+)
+
+select * from Productos
