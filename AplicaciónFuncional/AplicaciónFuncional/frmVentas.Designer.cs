@@ -123,9 +123,9 @@
             // grvProducto
             // 
             this.grvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvProducto.Location = new System.Drawing.Point(44, 287);
+            this.grvProducto.Location = new System.Drawing.Point(12, 287);
             this.grvProducto.Name = "grvProducto";
-            this.grvProducto.Size = new System.Drawing.Size(491, 150);
+            this.grvProducto.Size = new System.Drawing.Size(554, 150);
             this.grvProducto.TabIndex = 27;
             // 
             // lblProducto
