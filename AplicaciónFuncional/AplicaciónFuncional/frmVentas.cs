@@ -56,6 +56,7 @@ namespace AplicaciónFuncional
         /***FORMULARIO***/
         private void frmVentas_Load(object sender, EventArgs e)
         {
+            grvProducto.DataSource = ventas.ConsultarVenta();
             grvProducto.AllowUserToAddRows = false;
             cmbProductos.Items.AddRange(ventas.LlenarCbxProducto().ToArray());
         }
