@@ -116,6 +116,11 @@
             this.nudCantidad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nudCantidad.Font = new System.Drawing.Font("NSimSun", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudCantidad.Location = new System.Drawing.Point(56, 230);
+            this.nudCantidad.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudCantidad.Name = "nudCantidad";
             this.nudCantidad.Size = new System.Drawing.Size(73, 25);
             this.nudCantidad.TabIndex = 26;

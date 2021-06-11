@@ -133,6 +133,7 @@ namespace AplicaciónFuncional
             {
                 try
                 {
+                    clsProductos productos = new clsProductos();
                     productos.Descontinuar(Convert.ToInt32(txtCodigo.Text));
 
                     dgvProductos.DataSource = productos.Consultar();
@@ -160,7 +161,8 @@ namespace AplicaciónFuncional
             {
                 try
                 {
-                    clsProductos productos = new clsProductos(Convert.ToInt32(txtCodigo.Text), txtDescripcion.Text, Convert.ToDouble(txtPrecio.Text), Convert.ToInt32(nudCantidad.Value));
+                    label1.Text = nudCantidad.Value.ToString();
+                    clsProductos productos = new clsProductos(Convert.ToInt32(txtCodigo.Text), txtDescripcion.Text, Convert.ToDouble(txtPrecio.Text), Convert.ToInt32(label1.Text));
                     productos.Modificar();
 
                     dgvProductos.DataSource = productos.Consultar();

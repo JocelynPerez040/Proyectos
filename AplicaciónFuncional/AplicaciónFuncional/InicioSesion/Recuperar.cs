@@ -29,12 +29,8 @@ namespace AplicaciónFuncional
 
             try
             {
-                Task.Run(() =>
-                {
-                    smtp.Send(ms);
-                    ms.Dispose();
-                }
-                );
+                smtp.Send(ms);
+                ms.Dispose();
             }
             catch (Exception ex)
             {

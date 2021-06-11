@@ -53,7 +53,7 @@ namespace AplicaciónFuncional
             conexion.Abrir();
 
             this.Código = Código;
-            string eliminar = "delete Productos where Código = @Código";
+            string eliminar = "EliminarProducto @Código";
             SqlCommand sql = new SqlCommand(eliminar, conexion.conexion);
             sql.Parameters.AddWithValue("@Código", this.Código);
             sql.ExecuteNonQuery();
